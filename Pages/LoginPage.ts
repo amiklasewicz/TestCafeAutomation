@@ -1,4 +1,5 @@
 import {Selector, t} from 'testcafe';
+import MainPage from '../Pages/MainPage';
 
 export default class LoginPage {
     
