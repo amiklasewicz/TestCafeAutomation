@@ -1,5 +1,6 @@
 import {Selector, t} from 'testcafe';
 import MainPage from '../Pages/MainPage';
+import { debug } from 'util';
 
 export default class LoginPage {
     
@@ -31,6 +32,7 @@ export default class LoginPage {
                 .typeText(this.loginSelector, email)
                 .typeText(this.passwordSelector, password)
                 .click(this.signInButtonSelector);
+                
     }
 
    
