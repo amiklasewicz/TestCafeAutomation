@@ -12,13 +12,13 @@ fixture('Login and security settings')
 
 test('Edit name of user', async () =>{
     const mainPage = new MainPage();
-    const loginPage = new LoginPage();
-    const yourAccountPage = new YourAccountPage();
-    const loginAndSecurity = new LoginAndSecurityPage();
-    await mainPage.goToLoginPage();
-    await loginPage.loginDefaultUser();   
-    await mainPage.goToYourAccount();
-    await yourAccountPage.goToLoginAndSecurity();
-    await loginAndSecurity.edituserName();
-    
+    const loginAndSecurity = await mainPage.goToLoginAndSecuritySettings();  
+    await loginAndSecurity.edituserName();   
+})
+
+
+test('Add phone number', async () =>{
+    const mainPage = new MainPage();
+    const loginAndSecurity = await mainPage.goToLoginAndSecuritySettings();   
+    await loginAndSecurity.addPhoneNumber();
 })
