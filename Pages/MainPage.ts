@@ -7,14 +7,20 @@ import LoginAndSecurityPage from './LoginAndSecurityPage';
 
 export default class MainPage {
     
-    private loginHover: Selector;
+    
     private loginPageSelector: Selector;
+    private loginHover: Selector;
+    private yourAccountSelector: Selector;
+
     
 
 
     public constructor () {
-        
+               
         this.loginPageSelector = Selector('span.nav-line-2').withText('Account & Lists');
+        this.loginHover = Selector('#nav-link-accountList > span.nav-line-2 > span');
+        this.yourAccountSelector = Selector('#nav-al-your-account > a:nth-child(2) > span')
+
 
     }
 
@@ -25,8 +31,8 @@ export default class MainPage {
 
     async goToYourAccount() {
         await t
-        .hover(Selector('#nav-link-accountList > span.nav-line-2 > span'))
-        .click(Selector('#nav-al-your-account > a:nth-child(2) > span'));
+        .hover(Selector(this.loginHover))
+        .click(Selector(this.yourAccountSelector));
         return new YourAccountPage();
     }
 
