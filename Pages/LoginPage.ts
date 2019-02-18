@@ -11,6 +11,7 @@ export default class LoginPage {
     private passwordValue: string;
 
     private signInButtonSelector: Selector;
+    private additionalVerificationButton: Selector;
 
     public constructor() {
         
@@ -21,6 +22,8 @@ export default class LoginPage {
         this.passwordValue = 'Test123456!'
 
         this.signInButtonSelector = Selector('#signInSubmit');
+        this.additionalVerificationButton = Selector('#continue');
+
     }
 
     async loginDefaultUser() {
@@ -32,6 +35,12 @@ export default class LoginPage {
                 .typeText(this.loginSelector, email)
                 .typeText(this.passwordSelector, password)
                 .click(this.signInButtonSelector);
+
+                if(await this.additionalVerificationButton.exists) {
+                    const mainPage = new MainPage();
+                    mainPage.doAdditionalVerification();
+
+                }
                 
     }
 

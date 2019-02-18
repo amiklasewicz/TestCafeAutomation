@@ -11,6 +11,7 @@ export default class MainPage {
     private loginPageSelector: Selector;
     private loginHover: Selector;
     private yourAccountSelector: Selector;
+    private additionalVerificationButton: Selector;
 
     
 
@@ -19,7 +20,8 @@ export default class MainPage {
                
         this.loginPageSelector = Selector('span.nav-line-2').withText('Account & Lists');
         this.loginHover = Selector('#nav-link-accountList > span.nav-line-2 > span');
-        this.yourAccountSelector = Selector('#nav-al-your-account > a:nth-child(2) > span')
+        this.yourAccountSelector = Selector('#nav-al-your-account > a:nth-child(2) > span');
+        this.additionalVerificationButton = Selector('#continue');
 
 
     }
@@ -35,6 +37,12 @@ export default class MainPage {
         .click(Selector(this.yourAccountSelector));
         return new YourAccountPage();
     }
+
+    async doAdditionalVerification() {
+        await t
+        .click(Selector(this.additionalVerificationButton));
+    }
+
 
     async goToLoginAndSecuritySettings() {
         const mainPage = new MainPage();
